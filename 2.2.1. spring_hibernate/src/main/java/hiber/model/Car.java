@@ -13,13 +13,6 @@ public class Car {
    @Column(name = "model")
    private String model;
 
-   @OneToOne(
-           fetch = FetchType.LAZY,
-           mappedBy = "car",
-           orphanRemoval = true
-   )
-   private User user;
-
    public Car() {
 
    }
@@ -31,16 +24,8 @@ public class Car {
 
    public Car(int series, String model, User user) {
       this(series, model);
-      this.user = user;
    }
 
-   public User getUser() {
-      return user;
-   }
-
-   public void setUser(User owner) {
-      this.user = owner;
-   }
 
    public int getSeries() {
       return series;
